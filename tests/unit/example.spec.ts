@@ -1,7 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
-import HelloWorld from '@/components/HelloWorld.vue';
 import { createTestingPinia } from '@pinia/testing';
 import { useTodoStore } from '@/stores/todo';
+// import { createVuetify } from 'vuetify';
+import TodoList from '@/components/TodoList.vue';
 
 const fakeTodos = [{
   id: 1,
@@ -10,19 +11,25 @@ const fakeTodos = [{
   completed: false,
 }];
 
-describe('HelloWorld.vue', () => {
+describe('TodoList.vue', () => {
+  // const vuetify = createVuetify();
   const pinia = createTestingPinia();
   const useTodo = useTodoStore(pinia);
   useTodo.todos = fakeTodos;
 
-  it('Should get todo title', () => {
-    const wrapper = shallowMount(HelloWorld, {
+  it('Should get todos titles', () => {
+    const wrapper = shallowMount(TodoList, {
       global: {
         plugins: [pinia],
       },
     });
 
-    const todo = wrapper.get('[data-test-id="todo"]');
-    expect(todo.text()).toBe('teste 1');
+    const todos = wrapper.findAll('[data-testid="todo-title"]');
+    expect(todos).toHaveLength(fakeTodos.length);
+
+    todos.forEach((todo, index) => {
+      const title = todo.text();
+      expect(title).toContain(fakeTodos[index].title);
+    });
   });
 });
