@@ -44,6 +44,7 @@
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-standard": "^5.0.0",
     "eslint-plugin-vue": "^8.0.3",
     "eslint-plugin-vuejs-accessibility": "^1.1.0",
     "jest": "^27.0.5",
@@ -57,5 +58,11 @@
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
   }
 }

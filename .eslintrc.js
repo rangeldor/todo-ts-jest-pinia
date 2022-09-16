@@ -2,49 +2,42 @@ module.exports = {
   root: true,
 
   env: {
-    node: true,
+    node: true
   },
 
   extends: [
-    'plugin:vue/vue3-essential',
-    '@vue/airbnb',
-    '@vue/typescript/recommended',
+    'plugin:vue/vue3-strongly-recommended',
+    '@vue/standard',
+    '@vue/typescript/recommended'
   ],
-  // extends: [
-  //   'plugin:vue/vue3-strongly-recommended',
-  //   '@vue/eslint-config-standard-with-typescript',
-  //   '@vue/typescript/recommended',
-  //   '@vue/standard'
-  // ],
 
   parserOptions: {
     ecmaVersion: 2020,
-    parser: '@typescript-eslint/parser',
+    parser: '@typescript-eslint/parser'
   },
 
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'import/prefer-default-export': 0,
-    'consistent-return': 0,
+    '@typescript-eslint/no-var-requires': 0
   },
 
   overrides: [
     {
       files: [
         '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)',
+        '**/tests/unit/**/*.spec.{j,t}s?(x)'
       ],
       env: {
-        jest: true,
-      },
-    },
+        jest: true
+      }
+    }
   ],
 
   globals: {
     defineProps: 'readonly',
     defineEmits: 'readonly',
     defineExpose: 'readonly',
-    withDefaults: 'readonly',
-  },
-};
+    withDefaults: 'readonly'
+  }
+}

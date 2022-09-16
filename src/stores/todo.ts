@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia';
-import axios, { AxiosError } from 'axios';
+import { defineStore } from 'pinia'
+import axios, { AxiosError } from 'axios'
 
 export interface ITodo {
   userId: number
@@ -16,27 +16,27 @@ interface IState {
 export const useTodoStore = defineStore('todo', {
   state: (): IState => ({
     isLoading: false,
-    todos: [],
+    todos: []
   }),
 
   actions: {
-    async fetchAll() {
-      this.isLoading = true;
+    async fetchAll () {
+      this.isLoading = true
 
-      const url = 'https://jsonplaceholder.typicode.com/todos';
+      const url = 'https://jsonplaceholder.typicode.com/todos'
 
       try {
-        const response = await axios.get(url);
-        this.todos = response.data;
+        const response = await axios.get(url)
+        this.todos = response.data
       } catch (error) {
-        const err = error as AxiosError;
+        const err = error as AxiosError
 
         if (err.response) {
-          return err.response;
+          return err.response
         }
       } finally {
-        this.isLoading = false;
+        this.isLoading = false
       }
-    },
-  },
-});
+    }
+  }
+})

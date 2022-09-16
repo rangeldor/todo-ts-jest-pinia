@@ -3,6 +3,6 @@ module.exports = {
   transformIgnorePatterns: ['<rootDir>/node_modules/(?!vuetify)'],
   testMatch: [
     '**/*.spec.js',
-    '**/*.spec.ts',
-  ],
-};
+    '**/*.spec.ts'
+  ]
+}
