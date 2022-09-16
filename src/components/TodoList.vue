@@ -17,7 +17,7 @@
       <tbody>
         <tr v-for="todo in useTodo.todos" :key="todo.id">
           <td data-testid="todo-title">{{ todo.title }}</td>
-          <td>{{ todo.completed ? 'Sim' : 'Não' }}</td>
+          <td :class="todo.completed ? 'bg-primary' : ''">{{ todo.completed ? 'Sim' : 'Não' }}</td>
         </tr>
       </tbody>
     </v-table>
