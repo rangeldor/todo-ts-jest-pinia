@@ -1,8 +1,11 @@
 <template>
-  <TodoList />
+  <v-container>
+    <h1>Todo List - JSON Placeholder</h1>
+    <TodoList />
+  </v-container>
 </template>
 
 <script lang="ts" setup>
-import TodoList from '@/components/TodoList.vue'
+import TodoList from '@/components/todo/TodoList.vue'
 
 </script>
