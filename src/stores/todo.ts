@@ -10,13 +10,17 @@ export interface ITodo {
 
 interface IState {
   isLoading: boolean
-  todos: ITodo[]
+  todos: ITodo[],
+  todo: ITodo | Record<string, never>,
+  openDetailDialog: boolean
 }
 
 export const useTodoStore = defineStore('todo', {
   state: (): IState => ({
     isLoading: false,
-    todos: []
+    todos: [],
+    todo: {},
+    openDetailDialog: false
   }),
 
   actions: {

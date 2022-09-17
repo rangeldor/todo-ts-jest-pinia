@@ -1,6 +1,8 @@
 <template>
   <v-container>
-    <h1>Todo List - JSON Placeholder</h1>
+    <h1 class="text-primary">
+      Todo List - JSON Placeholder
+    </h1>
     <TodoList />
   </v-container>
 </template>

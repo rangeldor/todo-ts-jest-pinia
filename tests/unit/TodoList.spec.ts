@@ -11,6 +11,12 @@ const fakeTodos = [{
   userId: 2,
   title: 'teste 1',
   completed: false
+},
+{
+  id: 2,
+  userId: 1,
+  title: 'teste 2',
+  completed: true
 }]
 
 describe('TodoList.vue', () => {

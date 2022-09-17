@@ -1,15 +1,18 @@
 <template>
   <v-table
     fixed-header
-    height="300px"
+    height="400px"
   >
     <thead>
       <tr>
-        <th class="text-left">
+        <th class="text-left text-primary">
           Titulo
         </th>
-        <th class="text-center">
+        <th class="text-center text-primary">
           Concluído?
+        </th>
+        <th class="text-center text-primary">
+          Ações
         </th>
       </tr>
     </thead>
@@ -22,12 +25,21 @@
       </tr>
     </tbody>
   </v-table>
+
+  <v-dialog
+    max-width="600"
+    v-model="useTodo.openDetailDialog"
+  >
+    <TodoListDetail />
+  </v-dialog>
 </template>
 
 <script lang="ts" setup>
 import { useTodoStore } from '@/stores/todo'
 import TodoListItem from './TodoListItem.vue'
+import TodoListDetail from './TodoListDetail.vue'
 
 const useTodo = useTodoStore()
 useTodo.fetchAll()
+
 </script>
