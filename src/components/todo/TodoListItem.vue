@@ -9,7 +9,7 @@
     />
   </td>
   <td class="text-center">
-    <div class="d-flex">
+    <div class="d-flex justify-center align-center">
       <v-btn
         data-testid="todo-detail-button"
         class="ma-1"

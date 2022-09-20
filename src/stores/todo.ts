@@ -2,17 +2,18 @@ import { defineStore } from 'pinia'
 import axios, { AxiosError } from 'axios'
 
 export interface ITodo {
-  userId: number
-  id: number
+  userId?: number
+  id?: number
   title: string
   completed: boolean
 }
 
 interface IState {
   isLoading: boolean
-  todos: ITodo[],
-  todo: ITodo | Record<string, never>,
+  todos: ITodo[]
+  todo: ITodo | Record<string, never>
   openDetailDialog: boolean
+  openCreateDialog: boolean
 }
 
 export const useTodoStore = defineStore('todo', {
@@ -20,7 +21,8 @@ export const useTodoStore = defineStore('todo', {
     isLoading: false,
     todos: [],
     todo: {},
-    openDetailDialog: false
+    openDetailDialog: false,
+    openCreateDialog: false
   }),
 
   actions: {
@@ -40,6 +42,20 @@ export const useTodoStore = defineStore('todo', {
         }
       } finally {
         this.isLoading = false
+      }
+    },
+
+    async create (todo: ITodo) {
+      const url = 'https://jsonplaceholder.typicode.com/todos'
+
+      try {
+        await axios.post(url, todo)
+      } catch (error) {
+        const err = error as AxiosError
+
+        if (err.response) {
+          return err.response
+        }
       }
     }
   }
