@@ -1,9 +1,10 @@
 import '@mdi/font/css/materialdesignicons.css'
+import '@fortawesome/fontawesome-free/css/all.css'
 import 'vuetify/styles'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
-import { fa } from 'vuetify/iconsets/fa'
+import { aliases, fa } from 'vuetify/iconsets/fa'
 import { mdi } from 'vuetify/iconsets/mdi'
 import { md } from 'vuetify/iconsets/md'
 import { mdi as mdiSvg } from 'vuetify/iconsets/mdi-svg'
@@ -16,7 +17,8 @@ export default createVuetify({
   components,
   directives,
   icons: {
-    defaultSet: 'mdi',
+    defaultSet: 'fa',
+    aliases,
     sets: {
       fa,
       mdi,

@@ -1,4 +1,12 @@
 <template>
+  <v-expansion-panels>
+    <v-expansion-panel
+      title="Title"
+      text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, ratione debitis quis est labore voluptatibus! Eaque cupiditate minima"
+    />
+  </v-expansion-panels>
+  <v-icon icon="fas fa-regular fa-home" />
+  <v-icon icon="mdi:mdi-home" />
   <v-btn
     color="primary"
     class="my-3"
