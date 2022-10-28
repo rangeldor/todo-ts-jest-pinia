@@ -45,7 +45,6 @@ import { computed, toRefs } from 'vue'
 import { ITodo, useTodoStore } from '@/stores/todo'
 
 const useTodo = useTodoStore()
-useTodo.fetchAll()
 
 interface ITodoListItemProps {
   todoItem: ITodo

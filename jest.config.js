@@ -3,5 +3,9 @@ module.exports = {
   testMatch: [
     '**/*.spec.js',
     '**/*.spec.ts'
-  ]
+  ],
+  transform: {
+    '^.+\\.vue$': '@vue/vue3-jest',
+    '^.+\\.(ts|tsx)$': 'ts-jest'
+  }
 }
